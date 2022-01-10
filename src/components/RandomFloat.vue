@@ -17,7 +17,6 @@ export default {
     }
   },
   async created(){
-    console.log(`${process.env.VUE_APP_BASE_URL}api/v1/number`)
     const response = await axios.get(`${process.env.VUE_APP_BASE_URL}api/v1/number`);
     this.randomFloatValue = response.data.value;
   }
