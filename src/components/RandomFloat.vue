@@ -8,14 +8,16 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'RandomFloat',
   data(){
     return{
-      randomFloatValue: 0.7891234723497834
+      randomFloatValue: null
     }
   },
   async created(){
+    console.log(`${process.env.VUE_APP_BASE_URL}api/v1/number`)
     const response = await axios.get(`${process.env.VUE_APP_BASE_URL}api/v1/number`);
     this.randomFloatValue = response.data.value;
   }
